@@ -3,6 +3,9 @@ hello world - Daily Image
 <script>
   console.log('hello', pictures['01012021'], pictures['default'])
   // TODO: CHANGE BY CURRENT DATE
+  // String(d.getDate()).padStart(2, '0')
+  // d.getFullYear()
+  // (d.getMonth() + 1).padStart(2, '0')
   if(pictures['01012021']) {
     window.location.replace(pictures['01012021'])
   } else if(pictures['default']) {
