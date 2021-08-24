@@ -1,14 +1,7 @@
-hello world - Daily Image
-<script type="text/javascript" src="pictures.js"></script>
+Lazy Daily Image
 <script>
-  console.log('hello', pictures['01012021'], pictures['default'])
-  // TODO: CHANGE BY CURRENT DATE
-  // String(d.getDate()).padStart(2, '0')
-  // d.getFullYear()
-  // (d.getMonth() + 1).padStart(2, '0')
-  if(pictures['01012021']) {
-    window.location.replace(pictures['01012021'])
-  } else if(pictures['default']) {
-    window.location.replace(pictures['default'])
-  }
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  window.location.replace(`${window.location.href}/../${year}/${month}/index.json`)
 </script>
