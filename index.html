@@ -3,5 +3,5 @@ Lazy Daily Image
   const date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth();
-  window.location.replace(`${window.location.href}/../${year}/${month}/index.json`)
+  window.location.replace(`${window.location.href}/../${year}/${month}/index.json?date=${date.getTime()}`)
 </script>
