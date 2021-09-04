@@ -1,12 +1,27 @@
 <html>
   <head>
     <script>
-      fetch("test.json")
+      fetch("index.json")
       .then(response => response.json())
-      .then(json => console.log(json));
+      .then(json => {
+          console.log(json)
+          const body = document.getElementById('body')
+          const keys = Object.values(json)
+
+          keys.forEach(key => {
+            const div = document.createElement('div')
+            const divDay = document.createElement('div')
+            divDay.classList.add("day")
+            const img = document.createElement('img')
+            img.src = json[key]
+            div.append(img)
+            div.append(divDay)
+            body.append(div)
+          })
+      });
     </script>
   </head>
-  <body>
+  <body id='body'>
     
   </body>
 </html>
