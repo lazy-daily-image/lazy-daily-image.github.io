@@ -1,0 +1,9 @@
+<script>
+  (() => {
+    const res = await fetch(faviconApiUrl);
+
+    if (res.status === 200) {
+      return window.location.replace(faviconApiUrl);
+    }
+  })()
+</script>
