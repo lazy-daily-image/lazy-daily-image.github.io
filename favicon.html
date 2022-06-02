@@ -1,9 +1,14 @@
 <script>
   (() => {
-    const res = await fetch(faviconApiUrl);
+    const urlParams = new URLSearchParams(window.location.search);
+    const url = urlParams.get('url');
+
+    console.log(url)
+
+    const res = await fetch(url);
 
     if (res.status === 200) {
-      return window.location.replace(faviconApiUrl);
+      return window.location.replace(url);
     }
   })()
 </script>
