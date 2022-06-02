@@ -1,6 +1,5 @@
 <script>
-
-    function getFaviconApiUrl(url) {
+  function getFaviconApiUrl(url) {
     if (url) {
       try {
         const urlObject = new URL(url);
@@ -16,18 +15,18 @@
     return undefined;
   }
 
-    (() => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const url = urlParams.get('url');
+  (async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const url = urlParams.get('url');
 
-      const faviconApiUrl = getFaviconApiUrl(url);
+    const faviconApiUrl = getFaviconApiUrl(url);
 
-      if (faviconApiUrl) {
-        const res = await fetch(faviconApiUrl);
+    if (faviconApiUrl) {
+      const res = await fetch(faviconApiUrl);
 
-        if (res.status === 200) {
-          window.location.replace(faviconApiUrl)
-        }
+      if (res.status === 200) {
+        window.location.replace(faviconApiUrl)
       }
-    })()
+    }
+  })()
 </script>
