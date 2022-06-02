@@ -1,14 +1,33 @@
 <script>
-  (() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const url = urlParams.get('url');
 
-    console.log(url)
+    function getFaviconApiUrl(url) {
+    if (url) {
+      try {
+        const urlObject = new URL(url);
 
-    const res = await fetch(url);
-
-    if (res.status === 200) {
-      return window.location.replace(url);
+        // ignore unresolvable protocols such as file://
+        if (urlObject.protocol.startsWith('http')) {
+          const domain = urlObject.hostname;
+          return `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
+        }
+      } catch (e) {}
     }
-  })()
+
+    return undefined;
+  }
+
+    (() => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const url = urlParams.get('url');
+
+      const faviconApiUrl = getFaviconApiUrl(url);
+
+      if (faviconApiUrl) {
+        const res = await fetch(faviconApiUrl);
+
+        if (res.status === 200) {
+          window.location.replace(faviconApiUrl)
+        }
+      }
+    })()
 </script>
