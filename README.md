@@ -3,7 +3,7 @@
 
 if you go on `https://lazy-daily-image.github.io/`. it will give you the Json of the months
 
-The Json as this format
+The Json has this format
 
 ```
 {
